@@ -111,19 +111,19 @@
 <meta property="og:description" content="RabbitMQ简介​    MQ(Message Queue)消息队列，是一种应用程序对应用程序的通信方法，应用程序通过读写出入队列的消息来通信，不需要专用的链接。程序之间通过消息中的数据进行通信，不要通过调用彼此来通信，直接调用通常是指远程过程调用RPC（Remote Procedure Call）   ​    MQ是生产—消费者模型的一个典型代表。生产者往消息队列中写入消息，消费者可以读取">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/p.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/D:/post/img/c.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/D:/post/img/queue.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/D:/post/img/pc.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/D:/post/img/pc2.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/D:/post/img/pc3.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/D:/post/img/exchange.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/D:/post/img/exchange2.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/D:/post/img/exchange3.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/D:/post/img/exchange4.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/D:/post/img/exchange5.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/D:/post/img/exchange6.png">
-<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/D:/post/img/rpc.png">
-<meta property="og:updated_time" content="2018-05-09T16:40:01.964Z">
+<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/c.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/queue.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/pc.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/pc2.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/pc3.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/exchange.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/exchange2.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/exchange3.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/exchange4.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/exchange5.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/exchange6.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/rpc.png">
+<meta property="og:updated_time" content="2018-05-09T16:45:31.429Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RabbitMQ简介">
 <meta name="twitter:description" content="RabbitMQ简介​    MQ(Message Queue)消息队列，是一种应用程序对应用程序的通信方法，应用程序通过读写出入队列的消息来通信，不需要专用的链接。程序之间通过消息中的数据进行通信，不要通过调用彼此来通信，直接调用通常是指远程过程调用RPC（Remote Procedure Call）   ​    MQ是生产—消费者模型的一个典型代表。生产者往消息队列中写入消息，消费者可以读取">
@@ -358,7 +358,7 @@
                 
               
 
-              <time title="创建时间：2018-05-10 00:31:51 / 修改时间：00:40:01" itemprop="dateCreated datePublished" datetime="2018-05-10T00:31:51+08:00">2018-05-10</time>
+              <time title="创建时间：2018-05-10 00:31:51 / 修改时间：00:45:31" itemprop="dateCreated datePublished" datetime="2018-05-10T00:31:51+08:00">2018-05-10</time>
             
 
             
@@ -444,24 +444,24 @@
 </ul>
 <h2 id="producer-（生产者）"><a href="#producer-（生产者）" class="headerlink" title="producer （生产者）"></a>producer （生产者）</h2><p><img src="/2018/05/10/rabbitmq-base/p.png" alt="D:\post\img"></p>
 <p>生产就是发送。发送消息的程序是生产者  </p>
-<h2 id="consumer-消费者"><a href="#consumer-消费者" class="headerlink" title="consumer (消费者)"></a>consumer (消费者)</h2><p><img src="/2018/05/10/rabbitmq-base/D:/post\img\c.png" alt=""></p>
+<h2 id="consumer-消费者"><a href="#consumer-消费者" class="headerlink" title="consumer (消费者)"></a>consumer (消费者)</h2><p><img src="/2018/05/10/rabbitmq-base/c.png" alt=""></p>
 <p>消费者是一个主要等待接收消息的程序  </p>
-<h2 id="Queue-队列"><a href="#Queue-队列" class="headerlink" title="Queue(队列)"></a>Queue(队列)</h2><p><img src="/2018/05/10/rabbitmq-base/D:/post\img\queue.png" alt=""></p>
+<h2 id="Queue-队列"><a href="#Queue-队列" class="headerlink" title="Queue(队列)"></a>Queue(队列)</h2><p><img src="/2018/05/10/rabbitmq-base/queue.png" alt=""></p>
 <p>队列是RabbitMQ中存放消息的地方，队列只受主机的内存和磁盘限制约束，它本质上是一个大型的消息缓冲区。  </p>
-<p><img src="/2018/05/10/rabbitmq-base/D:/post\img\pc.png" alt=""></p>
+<p><img src="/2018/05/10/rabbitmq-base/pc.png" alt=""></p>
 <p>消息流通过RabbitMQ和我们的应用程序，但<strong>消息只能存储在队列中  </strong></p>
-<p><img src="/2018/05/10/rabbitmq-base/D:/post\img\pc2.png" alt=""></p>
+<p><img src="/2018/05/10/rabbitmq-base/pc2.png" alt=""></p>
 <p>多个生产者可以往同一个队列发送消息，多个消费者也可以从一个队列接收数据 </p>
 <h2 id="Message-acknowledgment-消息回执"><a href="#Message-acknowledgment-消息回执" class="headerlink" title="Message acknowledgment(消息回执)"></a>Message acknowledgment(消息回执)</h2><p>​    在实际应用中，可能会发生消费者收到Queue中的消息，但没有处理完成就宕机（或出现其他意外）的情况，这种情况下就可能会导致消息丢失。为了避免这种情况发生，我们可以要求消费者在消费完消息后发送一个回执给RabbitMQ，RabbitMQ收到消息回执（Message acknowledgment）后才将该消息从Queue中移除；如果RabbitMQ没有收到回执并检测到消费者的RabbitMQ连接断开，则RabbitMQ会将该消息发送给其他消费者（如果存在多个消费者）进行处理。这里不存在timeout概念，<strong>一个消费者处理消息时间再长也不会导致该消息被发送给其他消费者，除非它的RabbitMQ连接断开</strong>。 这里会产生另外一个问题，如果开发人员在处理完业务逻辑后，忘记发送回执给RabbitMQ，这将会导致严重的bug——Queue中堆积的消息会越来越多；消费者重启后会重复消费这些消息并重复执行业务逻辑…   </p>
 <h2 id="Message-durability（消息持久化）"><a href="#Message-durability（消息持久化）" class="headerlink" title="Message durability（消息持久化）"></a>Message durability（消息持久化）</h2><p>​    如果我们希望即使在RabbitMQ服务重启的情况下，也不会丢失消息，我们可以将Queue与Message都设置为可持久化的（durable），这样可以保证绝大部分情况下我们的RabbitMQ消息不会丢失。但依然解决不了小概率丢失事件的发生（比如RabbitMQ服务器已经接收到生产者的消息，但还没来得及持久化该消息时RabbitMQ服务器就断电了），如果我们需要对这种小概率事件也要管理起来，那么我们要用到事务   </p>
-<h2 id="Prefetch-count（预加载数量）"><a href="#Prefetch-count（预加载数量）" class="headerlink" title="Prefetch count（预加载数量）"></a>Prefetch count（预加载数量）</h2><p><img src="/2018/05/10/rabbitmq-base/D:/post\img\pc3.png" alt=""></p>
+<h2 id="Prefetch-count（预加载数量）"><a href="#Prefetch-count（预加载数量）" class="headerlink" title="Prefetch count（预加载数量）"></a>Prefetch count（预加载数量）</h2><p><img src="/2018/05/10/rabbitmq-base/pc3.png" alt=""></p>
 <p>​    如果有多个消费者同时订阅同一个Queue中的消息，Queue中的消息会被平摊给多个消费者。这时<strong>如果每个消息的处理时间不同，就有可能会导致某些消费者一直在忙，而另外一些消费者一直空闲的情况</strong>。我们可以通过设置prefetchCount来限制Queue每次发送给每个消费者的消息数，比如我们设置prefetchCount=1，则Queue每次给每个消费者发送一条消息；消费者处理完这条消息后Queue会再给该消费者发送一条消息。    </p>
-<h2 id="Exchange（交换机）"><a href="#Exchange（交换机）" class="headerlink" title="Exchange（交换机）"></a>Exchange（交换机）</h2><p><img src="/2018/05/10/rabbitmq-base/D:/post\img\exchange.png" alt=""></p>
+<h2 id="Exchange（交换机）"><a href="#Exchange（交换机）" class="headerlink" title="Exchange（交换机）"></a>Exchange（交换机）</h2><p><img src="/2018/05/10/rabbitmq-base/exchange.png" alt=""></p>
 <p>​    生产者将消息发送到Exchange（交换器，上图中的X），由Exchange将消息路由到一个或多个Queue中（或者丢弃）。   </p>
-<h2 id="routing-key-路由规则"><a href="#routing-key-路由规则" class="headerlink" title="routing key(路由规则)"></a>routing key(路由规则)</h2><p><img src="/2018/05/10/rabbitmq-base/D:/post\img\exchange2.png" alt=""></p>
+<h2 id="routing-key-路由规则"><a href="#routing-key-路由规则" class="headerlink" title="routing key(路由规则)"></a>routing key(路由规则)</h2><p><img src="/2018/05/10/rabbitmq-base/exchange2.png" alt=""></p>
 <p>​    <strong>生产者在将消息发送给Exchange的时候，一般会指定一个routing key</strong>，来指定这个消息的路由规则，而这个routing key需要与Exchange Type及binding key联合使用才能最终生效。 在Exchange Type与binding key固定的情况下，我们的生产者就可以在发送消息给Exchange时，通过指定routing key来决定消息流向哪里。 RabbitMQ为routing key设定的长度限制为255 bytes。   </p>
 <h2 id="Binding-key-绑定规则"><a href="#Binding-key-绑定规则" class="headerlink" title="Binding key(绑定规则)"></a>Binding key(绑定规则)</h2><p>​    RabbitMQ中通过Binding将Exchange与Queue关联起来，这样RabbitMQ就知道如何正确地将消息路由到指定的Queue了。  </p>
-<p><img src="/2018/05/10/rabbitmq-base/D:/post\img\exchange3.png" alt=""></p>
+<p><img src="/2018/05/10/rabbitmq-base/exchange3.png" alt=""></p>
 <p>​    在绑定（Binding）Exchange与Queue的同时，会指定一个binding key；消费者将消息发送给Exchange时，一般会指定一个routing key；<strong>当binding key与routing key相匹配时，消息将会被路由到对应的Queue中</strong>。 在绑定多个Queue到同一个Exchange的时候，这些Binding允许使用相同的binding key。 <strong>binding key 并不是在所有情况下都生效，它依赖于Exchange Type</strong>，比如fanout(广播)类型的Exchange就会无视binding key，而是将消息路由到所有绑定到该Exchange的Queue。  </p>
 <h2 id="Exchange-type-交换机类型"><a href="#Exchange-type-交换机类型" class="headerlink" title="Exchange type(交换机类型)"></a>Exchange type(交换机类型)</h2><p>​    RabbitMQ常用的Exchange Type有fanout、direct、topic、headers下面分别进行介绍。  详情参考<a href="https://www.rabbitmq.com/tutorials/amqp-concepts.html" target="_blank" rel="noopener">官方文档</a>  </p>
 <h3 id="1-Default-Exchange"><a href="#1-Default-Exchange" class="headerlink" title="1.Default Exchange"></a>1.Default Exchange</h3><blockquote>
@@ -473,7 +473,7 @@
 <p>When a new message with routing key R arrives at the direct exchange, the exchange routes it to the queue <strong>if K = R</strong></p>
 </blockquote>
 <p>​    Direct类型交换机会把消息路由到那些<strong>binding key与routing key完全匹配的Queue</strong>中。   </p>
-<p><img src="/2018/05/10/rabbitmq-base/D:/post\img\exchange4.png" alt=""></p>
+<p><img src="/2018/05/10/rabbitmq-base/exchange4.png" alt=""></p>
 <p>​    以上图的配置为例    </p>
 <blockquote>
 <p>我们以routingKey=”error”发送消息到Exchange，则消息会路由到Queue1和Queue2；</p>
@@ -488,14 +488,14 @@
 <p>A fanout exchange routes messages to all of the queues that are bound to it and the <strong>routing key is ignored</strong>. If N queues are bound to a fanout exchange, when a new message is published to that exchange a copy of the message is delivered to all N queues. Fanout exchanges are ideal for the broadcast routing of messages. </p>
 </blockquote>
 <p>​    Fanout Exchange  不需要处理RouteKey 。只需要简单的将队列绑定到exchange 上。这样发送到exchange的消息都会被转发到与该交换机绑定的所有Queue上。类似子网广播，每台子网内的主机都获得了一份复制的消息。所以，Fanout Exchange 转发消息是最快的。</p>
-<p><img src="/2018/05/10/rabbitmq-base/D:/post\img\exchange5.png" alt=""></p>
+<p><img src="/2018/05/10/rabbitmq-base/exchange5.png" alt=""></p>
 <p>4.Topic Exchange（主题订阅）  </p>
 <p>​    与Direct类型的Exchage相似，也是将消息路由到binding key与routing key相匹配的Queue中，但这里的匹配规则有些不同，它约定： <a href="https://www.rabbitmq.com/tutorials/tutorial-five-spring-amqp.html" target="_blank" rel="noopener">参考文档</a> </p>
 <ul>
 <li>routing key为一个句点号<code>.</code>分隔的字符串（我们将被句点号<code>.</code>分隔开的每一段独立的字符串称为一个单词），如<code>quick.orange.rabbit</code>、<code>lazy.rabbit</code></li>
 <li>binding key与routing key一样也是句点号<code>.</code>分隔的字符串，它可以存在两种特殊字符<code>*</code>与<code>#</code>，用于做模糊匹配，其中<code>*</code>用于匹配一个单词，<code>#</code>用于匹配多个单词（可以是零个） </li>
 </ul>
-<p><img src="/2018/05/10/rabbitmq-base/D:/post\img\exchange6.png" alt=""></p>
+<p><img src="/2018/05/10/rabbitmq-base/exchange6.png" alt=""></p>
 <p>以上图中的配置为例</p>
 <blockquote>
 <p>routingKey=”quick.orange.rabbit”的消息会同时路由到Q1与Q2</p>
@@ -514,7 +514,7 @@
 </blockquote>
 <h3 id="4-headers"><a href="#4-headers" class="headerlink" title="4.headers"></a>4.headers</h3><p>​    headers类型的Exchange不依赖于routing key与binding key的匹配规则来路由消息，而是根据发送的消息内容中的headers属性进行匹配。 </p>
 <h3 id="5-RPC"><a href="#5-RPC" class="headerlink" title="5.RPC"></a>5.RPC</h3><p>​    MQ本身是基于异步的消息处理，前面的示例中所有的生产者（P）将消息发送到RabbitMQ后不会知道消费者（C）处理成功或者失败。 但实际的应用场景中，我们很可能需要一些同步处理，需要<strong>同步等待服务端将我的消息处理完成后再进行下一步处理</strong>。这相当于RPC（Remote Procedure Call，远程过程调用）。在RabbitMQ中也支持RPC。 </p>
-<p><img src="/2018/05/10/rabbitmq-base/D:/post\img\rpc.png" alt=""></p>
+<p><img src="/2018/05/10/rabbitmq-base/rpc.png" alt=""></p>
 <p>RabbitMQ中实现RPC的机制是：</p>
 <ul>
 <li>客户端发送请求（消息）时，在消息的属性（<code>MessageProperties</code>，在AMQP协议中定义了14中properties，这些属性会随着消息一起发送）中设置两个值<code>replyTo</code>（一个Queue名称，用于告诉服务器处理完成后将通知我的消息发送到这个Queue中）和<code>correlationId</code>（此次请求的标识号，服务器处理完成后需要将此属性返还，<strong>客户端将根据这个id了解哪条请求被成功执行了或执行失败</strong>）</li>
