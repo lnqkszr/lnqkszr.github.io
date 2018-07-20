@@ -123,7 +123,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/exchange5.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/exchange6.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/10/rabbitmq-base/rpc.png">
-<meta property="og:updated_time" content="2018-05-09T16:45:31.429Z">
+<meta property="og:updated_time" content="2018-05-09T16:58:01.772Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RabbitMQ简介">
 <meta name="twitter:description" content="RabbitMQ简介​    MQ(Message Queue)消息队列，是一种应用程序对应用程序的通信方法，应用程序通过读写出入队列的消息来通信，不需要专用的链接。程序之间通过消息中的数据进行通信，不要通过调用彼此来通信，直接调用通常是指远程过程调用RPC（Remote Procedure Call）   ​    MQ是生产—消费者模型的一个典型代表。生产者往消息队列中写入消息，消费者可以读取">
@@ -358,7 +358,7 @@
                 
               
 
-              <time title="创建时间：2018-05-10 00:31:51 / 修改时间：00:45:31" itemprop="dateCreated datePublished" datetime="2018-05-10T00:31:51+08:00">2018-05-10</time>
+              <time title="创建时间：2018-05-10 00:31:51 / 修改时间：00:58:01" itemprop="dateCreated datePublished" datetime="2018-05-10T00:31:51+08:00">2018-05-10</time>
             
 
             
@@ -465,7 +465,7 @@
 <p>​    在绑定（Binding）Exchange与Queue的同时，会指定一个binding key；消费者将消息发送给Exchange时，一般会指定一个routing key；<strong>当binding key与routing key相匹配时，消息将会被路由到对应的Queue中</strong>。 在绑定多个Queue到同一个Exchange的时候，这些Binding允许使用相同的binding key。 <strong>binding key 并不是在所有情况下都生效，它依赖于Exchange Type</strong>，比如fanout(广播)类型的Exchange就会无视binding key，而是将消息路由到所有绑定到该Exchange的Queue。  </p>
 <h2 id="Exchange-type-交换机类型"><a href="#Exchange-type-交换机类型" class="headerlink" title="Exchange type(交换机类型)"></a>Exchange type(交换机类型)</h2><p>​    RabbitMQ常用的Exchange Type有fanout、direct、topic、headers下面分别进行介绍。  详情参考<a href="https://www.rabbitmq.com/tutorials/amqp-concepts.html" target="_blank" rel="noopener">官方文档</a>  </p>
 <h3 id="1-Default-Exchange"><a href="#1-Default-Exchange" class="headerlink" title="1.Default Exchange"></a>1.Default Exchange</h3><blockquote>
-<p>The default exchange is a direct exchange with no name (empty string) pre-declared by the broker. It has one special property that makes it very useful for simple applications: **every queue that is created is automatically bound to it with a routing key which is the same as the queue name</p>
+<p>The default exchange is a direct exchange with no name (empty string) pre-declared by the broker. It has one special property that makes it very useful for simple applications: <strong>every queue that is created is automatically bound to it with a routing key which is the same as the queue name</strong></p>
 </blockquote>
 <p>​    创建一个队列的时候回自动绑定一个Exchange，该Exchange的类型是Direct，routing key = queue name  </p>
 <h3 id="2-Direct-Exchange-直接交换"><a href="#2-Direct-Exchange-直接交换" class="headerlink" title="2.Direct Exchange  (直接交换)"></a>2.Direct Exchange  (直接交换)</h3><blockquote>
@@ -567,6 +567,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/07/17/Activiti简介/" rel="prev" title="Activiti（一）">
+                Activiti（一） <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -644,7 +648,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -659,7 +663,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -674,7 +680,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -765,7 +773,7 @@
 <span class="post-meta-divider">|</span>
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共2.8k字</span>
+  <span class="post-count">博客全站共4.5k字</span>
 </div>
 
 
