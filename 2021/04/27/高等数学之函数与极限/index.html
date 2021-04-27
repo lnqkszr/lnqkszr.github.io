@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="设计模式,7大设计原则," />
+  <meta name="keywords" content="高等数学," />
 
 
 
@@ -79,19 +79,23 @@
 
 
 
-<meta name="description" content="原始需求：设计一个动物类，实现他移动方法 12345678910class Animal &amp;#123;    &#x2F;**     * 移动     * @param animalType 动物类型     *&#x2F;    public void move(String animalType) &amp;#123;        System.out.printf(animalType + &quot;在路上跑&amp;q">
+<meta name="description" content="1、映射1.1、映射的概念  对于任意的集合X、Y（不一定是数集），如果存在集合X中任意数值x，通过某种对应关系f()，在集合Y中只有唯一的值y与之对应，这种对应就叫映射。例如：集合X 是学生，集合Y 是学号。 数学定义：设有非空集合X、Y，X到Y的对应法则为f，若对每个x $\in$ X, 存在唯一的 y $\in$ Y按照 f与之对应，则称f为X到Y的映射。记做：$f: x \rightarr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式七大设计原则之单一职责原则">
-<meta property="og:url" content="http://example.com/2021/04/20/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%83%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B9%8B%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99/index.html">
+<meta property="og:title" content="高等数学之函数与极限">
+<meta property="og:url" content="http://example.com/2021/04/27/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/index.html">
 <meta property="og:site_name" content="ZR-BLOG">
-<meta property="og:description" content="原始需求：设计一个动物类，实现他移动方法 12345678910class Animal &amp;#123;    &#x2F;**     * 移动     * @param animalType 动物类型     *&#x2F;    public void move(String animalType) &amp;#123;        System.out.printf(animalType + &quot;在路上跑&amp;q">
+<meta property="og:description" content="1、映射1.1、映射的概念  对于任意的集合X、Y（不一定是数集），如果存在集合X中任意数值x，通过某种对应关系f()，在集合Y中只有唯一的值y与之对应，这种对应就叫映射。例如：集合X 是学生，集合Y 是学号。 数学定义：设有非空集合X、Y，X到Y的对应法则为f，若对每个x $\in$ X, 存在唯一的 y $\in$ Y按照 f与之对应，则称f为X到Y的映射。记做：$f: x \rightarr">
 <meta property="og:locale">
-<meta property="article:published_time" content="2021-04-20T14:12:45.000Z">
-<meta property="article:modified_time" content="2021-04-27T14:39:38.314Z">
+<meta property="og:image" content="http://example.com/2021/04/27/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/1.png">
+<meta property="og:image" content="http://example.com/2021/04/27/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/3.png">
+<meta property="og:image" content="http://example.com/2021/04/27/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/2.png">
+<meta property="og:image" content="http://example.com/2021/04/27/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/4.png">
+<meta property="article:published_time" content="2021-04-27T15:14:45.000Z">
+<meta property="article:modified_time" content="2021-04-27T17:07:50.520Z">
 <meta property="article:author" content="zr">
-<meta property="article:tag" content="设计模式">
-<meta property="article:tag" content="7大设计原则">
+<meta property="article:tag" content="高等数学">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/04/27/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/1.png">
 
 
 
@@ -121,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2021/04/20/设计模式七大设计原则之单一职责原则/"/>
+  <link rel="canonical" href="http://example.com/2021/04/27/高等数学之函数与极限/"/>
 
 
 
 
 
-  <title>设计模式七大设计原则之单一职责原则 | ZR-BLOG</title>
+  <title>高等数学之函数与极限 | ZR-BLOG</title>
   
 
 
@@ -264,7 +268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/20/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%83%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B9%8B%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/27/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -281,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">设计模式七大设计原则之单一职责原则</h1>
+          <h1 class="post-title" itemprop="name headline">高等数学之函数与极限</h1>
         
 
         <div class="post-meta">
@@ -293,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-20T22:12:45+08:00">
-                2021-04-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-04-27T23:14:45+08:00">
+                2021-04-27
               </time>
             
 
@@ -309,8 +313,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-04-27T22:39:38+08:00">
-                2021-04-27
+              <time title="更新于" itemprop="dateModified" datetime="2021-04-28T01:07:50+08:00">
+                2021-04-28
               </time>
             
           </span>
@@ -328,8 +332,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
+                  <a href="/categories/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index">
+                    <span itemprop="name">高等数学</span>
                   </a>
                 </span>
 
@@ -359,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  544字
+                  520字
                 </span>
               
 
@@ -375,7 +379,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2分钟
+                  1分钟
                 </span>
               
             </div>
@@ -396,28 +400,37 @@
       
 
       
-        <p><strong>原始需求：设计一个动物类，实现他移动方法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 移动</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> animalType 动物类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">(String animalType)</span> </span>&#123;</span><br><span class="line">        System.out.printf(animalType + <span class="string">&quot;在路上跑&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>需求变更：实现鸟、鱼的移动方法</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//写法一</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 移动</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> animalType 动物类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">(String animalType)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="string">&quot;鸟&quot;</span>.equals(animalType)) &#123;</span><br><span class="line">            System.out.printf(animalType + <span class="string">&quot;在天上飞&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;鱼&quot;</span>.equals(animalType)) &#123;</span><br><span class="line">            System.out.printf(animalType + <span class="string">&quot;在水里游&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="string">&quot;老虎&quot;</span>.equals(animalType)) &#123;</span><br><span class="line">            System.out.printf(animalType + <span class="string">&quot;在路上跑&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="1、映射"><a href="#1、映射" class="headerlink" title="1、映射"></a>1、映射</h2><h3 id="1-1、映射的概念"><a href="#1-1、映射的概念" class="headerlink" title="1.1、映射的概念"></a>1.1、映射的概念</h3><img src="/2021/04/27/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/1.png" class="">
 <blockquote>
-<p>写法一：违反了单一职责原则，代码很臃肿，降低了代码的可读性、可维护性。假如将来某一天，我们需要修改鸟的移动方法。存在的风险是可能影响到老虎、鱼的移动方法。</p>
+<p>对于任意的集合X、Y（不一定是数集），如果存在集合X中<strong>任意数值x</strong>，通过某种<strong>对应关系f()</strong>，在集合Y中只有<strong>唯一的值y</strong>与之对应，这种对应就叫映射。例如：集合X 是学生，集合Y 是学号。</p>
+<p>数学定义：<strong>设有非空集合X、Y，X到Y的对应法则为f，若对每个x $\in$ X, 存在唯一的 y $\in$ Y按照 f与之对应，则称f为X到Y的映射</strong>。记做：$f: x \rightarrow y $ 或者 $y=f(x)，x \in X$。x称为映射的<strong><em>原像</em></strong>，y称为映射的<strong><em>像</em></strong></p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//写法二</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">birdMove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;鸟在天上飞&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">tigerMove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;老虎在路上跑&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fishMove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;鱼在水里游&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>写法二：在方法级别上遵守的单一职责原则，在逻辑足够简单，类中方法少的情况下可使用。需求变更不会影响到其他方法。</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//写法三</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bird</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;鸟在天上飞&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tiger</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;老虎在路上跑&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Fish</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">move</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;鱼在水里游&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>方式三：将类分解，完全遵守单一职责原则，但是这样的修改成本过高，类分解的过多，改动的地方也比较多。在实际情况中还需综合考虑使用</p>
-</blockquote>
-<p><strong>单一职责原则的注意事项</strong></p>
+<p>定义域：对应关系f作用在哪个集合上的，哪个集合就称为f的定义域。例如，f的定义域为集合X，记做$D_f$</p>
+<p>值域：$f(x) = \{y | y=f(x), x \in D_f\}$，所有的的y构成的集合称为f的值域，记做$R_f$</p>
+<p>注意事项：</p>
 <ul>
-<li>降低类的复杂度，一个类只负责维护一项职责</li>
-<li>提高类的可读性，可维护性</li>
-<li>降低变更引起的风险</li>
-<li>通常情况下，应该遵守单一职责原则，只有逻辑足够的简单，才可在代码级违反单一职责原则，类中的方法足够的少，可以在方法级别上保持单一职责原则。</li>
+<li><p><strong>X、Y不一定是数集</strong></p>
+</li>
+<li><p>X通过映射找到的y值不一定沾满整个集合Y，如果沾满了就是一种特殊的映射（满射）</p>
+</li>
+<li><p>映射的三要素：定义域、值域、对应关系</p>
+</li>
+<li><p>x通过映射到的y值一定是唯一的，反过来，通过y值找到的x不一定是唯一的，如果是唯一的就是一种特殊的映射（单射）</p>
+<img src="/2021/04/27/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/3.png" class="">
+</li>
 </ul>
+<h3 id="1-2、满射的概念"><a href="#1-2、满射的概念" class="headerlink" title="1.2、满射的概念"></a>1.2、满射的概念</h3><img src="/2021/04/27/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/2.png" class="">
+<blockquote>
+<p>数学定义：设有映射 $f:x\rightarrow y$，若$R_f = Y$，则称f为<strong><em>满射</em></strong>。</p>
+<p>如果集合X中的值x通过映射f，对应的所有的y的集合=集合Y，则称f为满射</p>
+</blockquote>
+<h3 id="1-3、单射的概念"><a href="#1-3、单射的概念" class="headerlink" title="1.3、单射的概念"></a>1.3、单射的概念</h3><img src="/2021/04/27/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%87%BD%E6%95%B0%E4%B8%8E%E6%9E%81%E9%99%90/4.png" class="">
+<blockquote>
+<p>数学定义：设有映射$f:x \rightarrow y$，若对 $x_1、x_2 \in X$，当$x_1 \neq x_2$时有$f(x_1) \neq f(x_2)$,则称f为单射（每个y的原像是唯一的）。</p>
+</blockquote>
+<h3 id="1-4、一-一映射"><a href="#1-4、一-一映射" class="headerlink" title="1.4、一 一映射"></a>1.4、一 一映射</h3><blockquote>
+<p>既是单射又是满射的映射称为一 一映射。集合X中的任意值x，通过映射在集合Y中都能找到唯一对应值，并且集合Y在集合X中的对应值也是唯一的。</p>
+</blockquote>
 
       
     </div>
@@ -435,9 +448,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag"># 设计模式</a>
-          
-            <a href="/tags/7%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" rel="tag"># 7大设计原则</a>
+            <a href="/tags/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/" rel="tag"># 高等数学</a>
           
         </div>
       
@@ -450,8 +461,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2021/04/08/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2021/04/27/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%83%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B9%8B%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99/" rel="next" title="设计模式七大设计原则之接口隔离原则">
+                <i class="fa fa-chevron-left"></i> 设计模式七大设计原则之接口隔离原则
               </a>
             
           </div>
@@ -459,10 +470,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/04/20/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%BC%80%E7%AF%87%E4%B9%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7/" rel="prev" title="设计模式开篇之设计模式的重要性">
-                设计模式开篇之设计模式的重要性 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -514,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -579,6 +595,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E6%98%A0%E5%B0%84"><span class="nav-number">1.</span> <span class="nav-text">1、映射</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1%E3%80%81%E6%98%A0%E5%B0%84%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">1.1、映射的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2%E3%80%81%E6%BB%A1%E5%B0%84%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.2.</span> <span class="nav-text">1.2、满射的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3%E3%80%81%E5%8D%95%E5%B0%84%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">1.3.</span> <span class="nav-text">1.3、单射的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4%E3%80%81%E4%B8%80-%E4%B8%80%E6%98%A0%E5%B0%84"><span class="nav-number">1.4.</span> <span class="nav-text">1.4、一 一映射</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -776,6 +808,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
