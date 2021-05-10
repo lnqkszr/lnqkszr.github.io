@@ -259,6 +259,221 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%83%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B9%8B%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZR-BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/05/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%83%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B9%8B%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99/" itemprop="url">设计模式七大设计原则之迪米特法则</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-10T20:32:32+08:00">
+                2021-05-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-05-10T22:01:58+08:00">
+                2021-05-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/05/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%83%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B9%8B%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/05/10/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%83%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B9%8B%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  982字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="迪米特法则的基本介绍"><a href="#迪米特法则的基本介绍" class="headerlink" title="迪米特法则的基本介绍"></a>迪米特法则的基本介绍</h2><ul>
+<li>一个对象应该对其他对象保持最少的了解</li>
+<li>类与类关系越密切（继承、聚合、组合、关联），耦合度越大</li>
+<li>迪米特法则又叫<u><strong>最少知道原则</strong></u>，一个类对自己依赖的类了解的越少越好，被依赖的类不管多复杂，都尽量<strong><u>将自身逻辑封装在自己类的内部</u></strong>，对外只提供public方法不对外泄露任何信息。</li>
+<li>如果遵守迪米特法则，当一个模块修改时，就会尽量少的影响其他的模块，所有的修改都在自己的类中进行，这样扩展就会相对简单。</li>
+</ul>
+<h2 id="迪米特的其它表述方式"><a href="#迪米特的其它表述方式" class="headerlink" title="迪米特的其它表述方式"></a>迪米特的其它表述方式</h2><ul>
+<li>迪米特法则是对<strong><u>软件实体之间通信的限制</u></strong>，它对软件实体之间通信的宽度和深度做出了要求。</li>
+<li>只与自身的直接朋友通讯、不要跟“陌生人”说话</li>
+<li>直接朋友：每个对象都会与其他对象有耦合关系，只要两个对象之间的有耦合关系那么这两个对象之间就是朋友关系。<u><strong>成员变量、方法参数、方法返回值中的类是直接朋友</strong></u>，出现在局部变量中的类不是直接朋友。<strong><u>陌生的类最好不要以局部变量的形式出现在类的内部。</u></strong></li>
+<li>例如：军队里面有元帅、军官和士兵，元帅认识军官，军官认识自己管辖的士兵。元帅要攻击敌军，他不必直接对士兵下命令，只需要下命令给自己认识的军官，由军官将指令转发给自己所辖士兵即可。用迪米特法则解释，元帅和军官、军官和士兵是“朋友”，元帅和士兵是“陌生人”，元帅只应该与自己直接的“朋友”——军官说话，不要跟“陌生人”——士兵说话。</li>
+</ul>
+<h2 id="不遵守迪米特法则设计"><a href="#不遵守迪米特法则设计" class="headerlink" title="不遵守迪米特法则设计"></a>不遵守迪米特法则设计</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//校长类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Headmaster</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 打印老师的学生</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> teacher （直接朋友）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStudent</span><span class="params">(Teacher teacher)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//Student是间接朋友</span></span><br><span class="line">        List&lt;Student&gt; student = teacher.getStudent();</span><br><span class="line">        student.stream().forEach((item) -&gt; &#123;</span><br><span class="line">            System.out.printf(item.getName());</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//教师类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Student&gt; <span class="title">getStudent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Student&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="keyword">new</span> Student(<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;男&quot;</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> Student(<span class="string">&quot;李四&quot;</span>, <span class="string">&quot;男&quot;</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> Student(<span class="string">&quot;王麻子&quot;</span>, <span class="string">&quot;男&quot;</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> Student(<span class="string">&quot;小芳&quot;</span>, <span class="string">&quot;女&quot;</span>));</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//学生类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name,String Sex)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//...get/set</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="现在需求发生变化，获取老师的男同学并打印出性别"><a href="#现在需求发生变化，获取老师的男同学并打印出性别" class="headerlink" title="现在需求发生变化，获取老师的男同学并打印出性别"></a>现在需求发生变化，获取老师的男同学并打印出性别</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//教师类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> </span>&#123;</span><br><span class="line">    <span class="comment">//变更1：获取女同学</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Student&gt; <span class="title">getStudent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Student&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        list.add(<span class="keyword">new</span> Student(<span class="string">&quot;小芳&quot;</span>, <span class="string">&quot;女&quot;</span>));</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//校长类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Headmaster</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 打印老师的学生</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> teacher （直接朋友）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStudent</span><span class="params">(Teacher teacher)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//Student是间接朋友</span></span><br><span class="line">        List&lt;Student&gt; student = teacher.getStudent();</span><br><span class="line">        student.stream().forEach((item) -&gt; &#123;</span><br><span class="line">            <span class="comment">//变更2：打印性别</span></span><br><span class="line">            System.out.printf(item.getName() + item.getSex());</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>这种实现方式一旦需求有变动，就涉及到多个类的改动。导致系统的维护性变差。</li>
+</ul>
+<h2 id="采用迪米特法则改进"><a href="#采用迪米特法则改进" class="headerlink" title="采用迪米特法则改进"></a>采用迪米特法则改进</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//校长类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Headmaster</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 打印老师的学生</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> teacher （直接朋友）</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStudent</span><span class="params">(Teacher teacher)</span> </span>&#123;</span><br><span class="line">        teacher.printStudent();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//教师类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Student&gt; <span class="title">getStudent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        list.add(<span class="keyword">new</span> Student(<span class="string">&quot;小芳&quot;</span>, <span class="string">&quot;女&quot;</span>));</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStudent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Student&gt; list = <span class="keyword">this</span>.getStudent();</span><br><span class="line">        list.stream().forEach((item) -&gt; &#123;</span><br><span class="line">            System.out.printf(item.getName() + item.getSex());</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//学生类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String sex;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name,String Sex)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//...get/set</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>遵守迪米特法则，只修改了Teacher类，并且内部的变化不会影响到外部的调用，更易于维护扩展。做好行为的封装，不要越级调用。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/07/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B8%83%E5%A4%A7%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B9%8B%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1821,7 +2036,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
