@@ -87,7 +87,7 @@
 <meta property="og:description" content="依赖倒转原则（Dependence Inversion Principle）注意事项 高层模块不应该依赖（使用）底层模块，二者都应该依赖其抽象 底层模块尽量要有抽象类或者接口，程序稳定性更好 变量的声明类型尽量是抽象类或者接口，变量引用于实际对象之间会存在一个缓冲层，利于程序的扩展优化（eg:在替换变量的实现类时，只需要修改当前变更位置，而不用修改其余调用位置） 细节（实现类）应该依赖抽象（接口、">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-05-06T12:38:49.000Z">
-<meta property="article:modified_time" content="2021-05-06T14:25:25.958Z">
+<meta property="article:modified_time" content="2021-05-27T15:25:10.208Z">
 <meta property="article:author" content="zr">
 <meta property="article:tag" content="设计模式">
 <meta property="article:tag" content="7大设计原则">
@@ -162,7 +162,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">静心学习</p>
+        <p class="site-subtitle">兴趣遍地都是，专注和持之以恒才是真正稀缺的</p>
       
   </div>
 
@@ -309,8 +309,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2021-05-06T22:25:25+08:00">
-                2021-05-06
+              <time title="更新于" itemprop="dateModified" datetime="2021-05-27T23:25:10+08:00">
+                2021-05-27
               </time>
             
           </span>
@@ -421,6 +421,7 @@
 <li>抽象指的是接口或者抽象类，细节就是具体的实现类</li>
 <li>使用接口或抽象类的目的是制定好<strong>规范</strong>，不涉及的任何具体的操作，展现细节的工作要由实现类去完成</li>
 </ul>
+<span id="more"></span>
 <h2 id="采用依赖实现方式实现功能"><a href="#采用依赖实现方式实现功能" class="headerlink" title="采用依赖实现方式实现功能"></a>采用依赖实现方式实现功能</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dollar</span></span>&#123;</span><br><span class="line">    <span class="comment">//获取美元数量</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取汇率</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getExchangeRate</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">6.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 完成blank外币兑换的功能</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Blank</span></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 实现方式一：依赖细节</span></span><br><span class="line"><span class="comment">     * 带来的问题：如果要兑换的外币是欧元、英镑等，需要新增类。同时blank类也需要增加相应的转换方法。扩展性差</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dollar 美元</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">convert</span><span class="params">(Dollar dollar)</span></span>&#123;</span><br><span class="line">        <span class="keyword">double</span> rmb = dollar.getCount() * dollar.getExchangeRate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="采用依赖倒转原则来实现代码"><a href="#采用依赖倒转原则来实现代码" class="headerlink" title="采用依赖倒转原则来实现代码"></a>采用依赖倒转原则来实现代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dollar</span> <span class="keyword">implements</span> <span class="title">IConvert</span> </span>&#123;</span><br><span class="line">    <span class="comment">//获取美元数量</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取汇率</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getExchangeRate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">6.5</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">convert</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.getExchangeRate() * <span class="keyword">this</span>.getCount();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//转化接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IConvert</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">convert</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 完成blank外币兑换的功能</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Blank</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 实现方式二：依赖抽象</span></span><br><span class="line"><span class="comment">     * 兑换英镑、欧元blank不需要再新增转换方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> c 转换接口</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">convert</span><span class="params">(IConvert c)</span> </span>&#123;</span><br><span class="line">        c.convert();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="依赖关系传递的三种方式"><a href="#依赖关系传递的三种方式" class="headerlink" title="依赖关系传递的三种方式"></a>依赖关系传递的三种方式</h2><ul>
@@ -563,7 +564,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -574,7 +575,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -585,7 +586,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

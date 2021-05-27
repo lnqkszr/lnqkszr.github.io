@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="GIS," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="openlayer + geoserver 发布WMS&#x2F;WFS一、软件环境 下载安装webstorm，下载地址 下载安装node.js，安装教程百度一堆不再赘述下载地址 下载安装Tomcat，安装教程百度一堆不再赘述下载地址 下载geoserver，下载地址  二、环境配置 Tomcat启动后如果控制台显示中文乱码，在Tomcat安装根目录，conf文件夹中找到logging.properties">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openlayer + geoserver 发布WMS&#x2F;WFS">
+<meta property="og:url" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/index.html">
+<meta property="og:site_name" content="ZR-BLOG">
+<meta property="og:description" content="openlayer + geoserver 发布WMS&#x2F;WFS一、软件环境 下载安装webstorm，下载地址 下载安装node.js，安装教程百度一堆不再赘述下载地址 下载安装Tomcat，安装教程百度一堆不再赘述下载地址 下载geoserver，下载地址  二、环境配置 Tomcat启动后如果控制台显示中文乱码，在Tomcat安装根目录，conf文件夹中找到logging.properties">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/1.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/2.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/3.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/4.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/8.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/5.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/6.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/7.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/9.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/10.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/12.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/13.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/15.png">
+<meta property="og:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/16.png">
+<meta property="article:published_time" content="2021-05-27T15:28:23.000Z">
+<meta property="article:modified_time" content="2021-05-27T15:34:42.894Z">
+<meta property="article:author" content="zr">
+<meta property="article:tag" content="GIS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/05/27/openlayer+geoserver发布地图服务/"/>
+
+
+
+
+
+  <title>openlayer + geoserver 发布WMS/WFS | ZR-BLOG</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZR-BLOG</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">兴趣遍地都是，专注和持之以恒才是真正稀缺的</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/cat.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZR-BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">openlayer + geoserver 发布WMS/WFS</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-05-27T23:28:23+08:00">
+                2021-05-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2021-05-27T23:34:42+08:00">
+                2021-05-27
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GIS/" itemprop="url" rel="index">
+                    <span itemprop="name">GIS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2k字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="openlayer-geoserver-发布WMS-WFS"><a href="#openlayer-geoserver-发布WMS-WFS" class="headerlink" title="openlayer + geoserver 发布WMS/WFS"></a>openlayer + geoserver 发布WMS/WFS</h1><h1 id="一、软件环境"><a href="#一、软件环境" class="headerlink" title="一、软件环境"></a>一、软件环境</h1><ol>
+<li>下载安装webstorm，<a target="_blank" rel="noopener" href="https://www.jetbrains.com/zh-cn/webstorm/">下载地址</a></li>
+<li>下载安装node.js，安装教程百度一堆不再赘述<a target="_blank" rel="noopener" href="https://nodejs.org/en/">下载地址</a></li>
+<li>下载安装Tomcat，安装教程百度一堆不再赘述<a target="_blank" rel="noopener" href="https://tomcat.apache.org/">下载地址</a></li>
+<li>下载geoserver，<a target="_blank" rel="noopener" href="http://geoserver.org/">下载地址</a></li>
+</ol>
+<h1 id="二、环境配置"><a href="#二、环境配置" class="headerlink" title="二、环境配置"></a>二、环境配置</h1><ol>
+<li>Tomcat启动后如果控制台显示中文乱码，在Tomcat安装根目录，conf文件夹中找到<strong>logging.properties</strong>文件，编码修改成GBK。</li>
+<li>将下载的geoserver，解压出来的war包放入Tomcat中webapps目录中，启动时会自动解压部署geoserver。</li>
+<li>启动Tomcat，浏览器输入<a target="_blank" rel="noopener" href="http://127.0.0.1:8090/geoserver，登录**默认账号：admin">http://127.0.0.1:8090/geoserver，登录**默认账号：admin</a> 密码：geoserver**，如下图</li>
+</ol>
+<span id="more"></span>
+<img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/1.png" class="">
+<h1 id="三、创建项目"><a href="#三、创建项目" class="headerlink" title="三、创建项目"></a>三、创建项目</h1><h2 id="1、启动webstorm，创建vue项目。"><a href="#1、启动webstorm，创建vue项目。" class="headerlink" title="1、启动webstorm，创建vue项目。"></a>1、启动webstorm，创建vue项目。</h2><img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/2.png" class="">
+<h2 id="2、创建完项目如下图所示"><a href="#2、创建完项目如下图所示" class="headerlink" title="2、创建完项目如下图所示"></a>2、创建完项目如下图所示</h2><img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/3.png" class="">
+<h2 id="3、安装前端依赖"><a href="#3、安装前端依赖" class="headerlink" title="3、安装前端依赖"></a>3、安装前端依赖</h2><blockquote>
+<p>快捷键 alt + f12，打开终端Terminal</p>
+<p>1、输入<u><strong>npm install axios</strong></u>回车，安装axios，<a target="_blank" rel="noopener" href="http://www.axios-js.com/">官网地址</a></p>
+<p>2、输入<u><strong>npm install ol</strong></u>回车，安装openlayer，<a target="_blank" rel="noopener" href="https://openlayers.org/">官网地址</a></p>
+</blockquote>
+<h2 id="4、配置前端依赖"><a href="#4、配置前端依赖" class="headerlink" title="4、配置前端依赖"></a>4、配置前端依赖</h2><h3 id="1、配置axios"><a href="#1、配置axios" class="headerlink" title="1、配置axios"></a>1、配置axios</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.js</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span> <span class="comment">//引入</span></span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = <span class="literal">false</span></span><br><span class="line">Vue.prototype.axios = axios;<span class="comment">//配置VUE对象</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  render: <span class="function"><span class="params">h</span> =&gt;</span> h(App),</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2、跨域配置"><a href="#2、跨域配置" class="headerlink" title="2、跨域配置"></a>2、跨域配置</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//vue.config.js  没有这个文件就手动创建一个</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    devServer: &#123;</span><br><span class="line">        host: <span class="string">&quot;0.0.0.0&quot;</span>,</span><br><span class="line">        port: <span class="number">8081</span>,</span><br><span class="line">        <span class="comment">//代理设置</span></span><br><span class="line">        proxy: &#123;</span><br><span class="line">            <span class="string">&#x27;/&#x27;</span>: &#123;</span><br><span class="line">                target: <span class="string">&#x27;http://127.0.0.1:8090&#x27;</span>,<span class="comment">//geoserver地址</span></span><br><span class="line">                changeOrigin: <span class="literal">true</span>,<span class="comment">//允许跨越</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3、配置-ESLint-rules"><a href="#3、配置-ESLint-rules" class="headerlink" title="3、配置 ESLint rules"></a>3、配置 ESLint rules</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//package.json</span></span><br><span class="line">&quot;eslintConfig&quot;: &#123;</span><br><span class="line">	<span class="comment">//.....</span></span><br><span class="line">    &quot;rules&quot;: &#123;</span><br><span class="line">        &quot;no-unused-vars&quot;: &quot;off&quot;,</span><br><span class="line">        &quot;no-debugger&quot;: 0,</span><br><span class="line">        &quot;no-console&quot;: &quot;off&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//.....</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="三、初始化地图"><a href="#三、初始化地图" class="headerlink" title="三、初始化地图"></a>三、初始化地图</h1><h2 id="1、加载OpenStreetMap底图"><a href="#1、加载OpenStreetMap底图" class="headerlink" title="1、加载OpenStreetMap底图"></a>1、加载OpenStreetMap底图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;HelloWorld.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id&#x3D;&quot;map&quot; style&#x3D;&quot;height: 800px&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import createMap from &#39;..&#x2F;Utils&#x2F;MapInitUtil&#39;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    name: &#39;HelloWorld&#39;,</span><br><span class="line">    props: &#123;&#125;,</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        createMap(&quot;map&quot;);</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//MapInitUtil.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;ol/ol.css&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="built_in">Map</span> <span class="keyword">from</span> <span class="string">&#x27;ol/Map&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> View <span class="keyword">from</span> <span class="string">&#x27;ol/View&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;Tile <span class="keyword">as</span> TileLayer, Vector <span class="keyword">as</span> VectorLayer, VectorTile <span class="keyword">as</span> VectorTileLayer&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/layer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;OSM, Vector <span class="keyword">as</span> VectorSource, TileWMS <span class="keyword">as</span> TileWMSSource, VectorTile <span class="keyword">as</span> VectorTileSource&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建地图</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>containerId 容器ID</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="type">&#123;Map&#125;</span> </span>地图对象</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createMap</span>(<span class="params">containerId</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Map</span>(&#123;</span><br><span class="line">        target: containerId,</span><br><span class="line">        layers: [</span><br><span class="line">            <span class="keyword">new</span> TileLayer(&#123;</span><br><span class="line">                <span class="comment">//Layer source for the OpenStreetMap tile server</span></span><br><span class="line">                source: <span class="keyword">new</span> OSM()</span><br><span class="line">            &#125;),</span><br><span class="line">        ],</span><br><span class="line">        view: <span class="keyword">new</span> View(&#123;</span><br><span class="line">            projection: <span class="string">&#x27;EPSG:4326&#x27;</span>, <span class="comment">//坐标系</span></span><br><span class="line">            center: [<span class="number">112.4383393</span>, <span class="number">34.6868216</span>],<span class="comment">//中心点</span></span><br><span class="line">            zoom: <span class="number">10</span>,<span class="comment">//放大级别</span></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> createMap;</span><br></pre></td></tr></table></figure>
+<p><strong>效果图如下：</strong></p>
+<img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/4.png" class="">
+<h2 id="2、加载WMS"><a href="#2、加载WMS" class="headerlink" title="2、加载WMS"></a>2、加载WMS</h2><h3 id="1、使用geoserver发布WMS"><a href="#1、使用geoserver发布WMS" class="headerlink" title="1、使用geoserver发布WMS"></a>1、使用geoserver发布WMS</h3><blockquote>
+<p>shapefile文件类型定义：</p>
+<p><strong>shp文件：存储矢量数据的空间信息（必须）</strong></p>
+<p><strong>shx文件：要素几何特征的索引文件（必须）</strong></p>
+<p><strong>dbf文件：存储矢量数据的属性信息（必须）</strong></p>
+<p><strong>cpg文件：用于描述dbf文件的代码页，指明其使用的字符编码</strong></p>
+<p><strong>prj文件：投影格式，用于保存地理坐标系统与投影信息</strong></p>
+</blockquote>
+<p><strong>提前准备好的文件</strong></p>
+<img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/8.png" class="">
+<p>浏览器地址输入<a target="_blank" rel="noopener" href="http://127.0.0.1:8090/geoserver进入管理页面">http://127.0.0.1:8090/geoserver进入管理页面</a></p>
+<img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/5.png" class="">
+<img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/6.png" class="">
+<img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/7.png" class="">
+<img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/9.png" class="">
+<img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/10.png" class="">
+<img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/12.png" class="">
+<img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/13.png" class="">
+<img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/15.png" class="">
+<h3 id="2、openlayer-加载WMS、WFS实现点击要素查询"><a href="#2、openlayer-加载WMS、WFS实现点击要素查询" class="headerlink" title="2、openlayer 加载WMS、WFS实现点击要素查询"></a>2、openlayer 加载WMS、WFS实现点击要素查询</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//新增工具类 LayerUtil</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;ol/ol.css&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;GeoJSON&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/format&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;Fill, Stroke, Style&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/style&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;Tile <span class="keyword">as</span> TileLayer, Vector <span class="keyword">as</span> VectorLayer&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/layer&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;Vector <span class="keyword">as</span> VectorSource, TileWMS <span class="keyword">as</span> TileWMSSource&#125; <span class="keyword">from</span> <span class="string">&#x27;ol/source&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> featureStyle = <span class="keyword">new</span> Style(&#123;</span><br><span class="line">    fill: <span class="keyword">new</span> Fill(&#123;</span><br><span class="line">        color: <span class="string">&#x27;red&#x27;</span></span><br><span class="line">    &#125;),</span><br><span class="line">    stroke: <span class="keyword">new</span> Stroke(&#123;</span><br><span class="line">        color: <span class="string">&#x27;red&#x27;</span>,</span><br><span class="line">        width: <span class="number">6</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建图层(WMS)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="type">&#123;*&#125;</span> </span>图层</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createWMSLayer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> tileWMSSource = <span class="keyword">new</span> TileWMSSource(&#123;</span><br><span class="line">        url: <span class="string">&quot;http://127.0.0.1:8090/geoserver/railway/wms?service=WMS&amp;version=1.1.0&amp;request=GetMap&amp;layers=railway%3ALuoYangRailway&amp;bbox=111.0116662%2C34.1748096%2C112.9329863%2C34.978947&amp;width=768&amp;height=330&amp;srs=EPSG%3A4326&amp;styles=&amp;format=application/openlayers&quot;</span>,</span><br><span class="line">        projection: <span class="string">&#x27;EPSG:4326&#x27;</span>,</span><br><span class="line">        serverType: <span class="string">&#x27;geoserver&#x27;</span>,</span><br><span class="line">        format: <span class="keyword">new</span> GeoJSON()</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> TileLayer(&#123;</span><br><span class="line">        source: tileWMSSource,</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建图层(WFS)</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="type">&#123;*&#125;</span> </span>图层</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createWFSLayer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> vectorSource = <span class="keyword">new</span> VectorSource(&#123;</span><br><span class="line">        <span class="comment">//WFS服务涉及到跨域问题使用loader加载</span></span><br><span class="line">        loader: <span class="function">(<span class="params">extent, resolution, projection</span>) =&gt;</span> &#123;  <span class="comment">//加载函数</span></span><br><span class="line">            <span class="keyword">let</span> url = <span class="string">&#x27;/geoserver/railway/ows?service=WFS&amp;version=1.0.0&amp;request=GetFeature&amp;typeName=railway%3ALuoYangRailway&amp;maxFeatures=1000&amp;outputFormat=application%2Fjson&#x27;</span>;</span><br><span class="line">            <span class="comment">//maxFeatures=1000 一次最多加载1000个要素</span></span><br><span class="line">            axios.post(url).then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">let</span> featuresArr = (<span class="keyword">new</span> GeoJSON()).readFeatures(response.data);</span><br><span class="line">                featuresArr.forEach(<span class="function">(<span class="params">feature</span>) =&gt;</span> &#123;</span><br><span class="line">                    feature.setStyle(featureStyle);</span><br><span class="line">                &#125;);</span><br><span class="line">                vectorSource.addFeatures(featuresArr);  <span class="comment">//载入要素</span></span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;,</span><br><span class="line">        projection: <span class="string">&#x27;EPSG:4326&#x27;</span>,</span><br><span class="line">        format: <span class="keyword">new</span> GeoJSON(),</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> VectorLayer(&#123;</span><br><span class="line">        source: vectorSource</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建查询图层</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns <span class="type">&#123;*&#125;</span> </span>图层</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createQueryLayer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> VectorLayer(&#123;</span><br><span class="line">        source: <span class="keyword">new</span> VectorSource(&#123;</span><br><span class="line">            projection: <span class="string">&#x27;EPSG:4326&#x27;</span></span><br><span class="line">            <span class="comment">// wrapX: false,</span></span><br><span class="line">        &#125;),</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;createWMSLayer, createWFSLayer, createQueryLayer&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;HelloWorld.vue 修改</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;div id&#x3D;&quot;map&quot; style&#x3D;&quot;height: 500px&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">        &lt;div v-html&#x3D;&quot;queryReturnData&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">    &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import createBaseMap from &#39;@&#x2F;Utils&#x2F;MapInitUtil&#39;</span><br><span class="line">import &#123;createWMSLayer, createWFSLayer, createQueryLayer, featureStyle&#125; from &#39;@&#x2F;Utils&#x2F;LayerUtil&#39;</span><br><span class="line">import &#123;MultiLineString&#125; from &#39;ol&#x2F;geom&#39;;</span><br><span class="line">import &#123;WFS&#125; from &#39;ol&#x2F;format&#39;;</span><br><span class="line">import Feature from &#39;ol&#x2F;Feature&#39;;</span><br><span class="line">import &#123;Stroke, Style&#125; from &#39;ol&#x2F;style&#39;;</span><br><span class="line">import getUid from &#39;ol&#x2F;util&#39;;</span><br><span class="line">import &#123;</span><br><span class="line">    and as andFilter,</span><br><span class="line">    equalTo as equalToFilter,</span><br><span class="line">    like as likeFilter,</span><br><span class="line">&#125; from &#39;ol&#x2F;format&#x2F;filter&#39;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">    name: &#39;HelloWorld&#39;,</span><br><span class="line">    props: &#123;&#125;,</span><br><span class="line">    data() &#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            map: null,</span><br><span class="line">            queryReturnData: &#123;&#125;,</span><br><span class="line">            queryLayerId: null,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted() &#123;</span><br><span class="line">        this.map &#x3D; createBaseMap(&quot;map&quot;);</span><br><span class="line">        this.addRailwayWMSLayer();</span><br><span class="line">        &#x2F;&#x2F; this.addRailwayWFSLayer(); &#x2F;&#x2F;查询不加这个图层。</span><br><span class="line">        this.bindMapClick();</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">        &#x2F;**</span><br><span class="line">         * 添加铁路路线图图WMS服务</span><br><span class="line">         *&#x2F;</span><br><span class="line">        addRailwayWMSLayer() &#123;</span><br><span class="line">            this.map.addLayer(createWMSLayer());</span><br><span class="line">        &#125;,</span><br><span class="line">        &#x2F;**</span><br><span class="line">         * 添加铁路路线图图WFS服务</span><br><span class="line">         *&#x2F;</span><br><span class="line">        addRailwayWFSLayer() &#123;</span><br><span class="line">            this.map.addLayer(createWFSLayer());</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        &#x2F;**</span><br><span class="line">         * 绑定地图的点击事件</span><br><span class="line">         *&#x2F;</span><br><span class="line">        bindMapClick() &#123;</span><br><span class="line">            this.map.on([&#39;click&#39;], (evt) &#x3D;&gt; &#123;</span><br><span class="line">                let layerArr &#x3D; this.map.getLayers().getArray();</span><br><span class="line"></span><br><span class="line">                if (!layerArr || layerArr.length &lt; 2) &#123;</span><br><span class="line">                    &#x2F;&#x2F;定义的地图有两个图层。第一个是底图OSM，第二个是WMS</span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line">                let source &#x3D; layerArr[1].getSource();</span><br><span class="line">                &#x2F;&#x2F;获取要素信息url</span><br><span class="line">                let url1 &#x3D; source.getFeatureInfoUrl(</span><br><span class="line">                    evt.coordinate, &#x2F;&#x2F;选中要素坐标</span><br><span class="line">                    this.map.getView().getResolution(),&#x2F;&#x2F;分辨率</span><br><span class="line">                    &#39;EPSG:4326&#39;, &#x2F;&#x2F;坐标系</span><br><span class="line">                    &#123;&#39;INFO_FORMAT&#39;: &#39;text&#x2F;html&#39;, &quot;QUERY_LAYERS&quot;: &#39;railway:LuoYangRailway&#39;&#125;);&#x2F;&#x2F;返回信息格式html，查询图层</span><br><span class="line">                if (url1) &#123;</span><br><span class="line">                    &#x2F;&#x2F;防止跨域去掉URL头部</span><br><span class="line">                    this.axios.post(url1.replace(&quot;http:&#x2F;&#x2F;127.0.0.1:8090&quot;, &quot;&quot;)).then((response) &#x3D;&gt; &#123;</span><br><span class="line">                        &#x2F;&#x2F;显示查询结果</span><br><span class="line">                        this.queryReturnData &#x3D; response.data;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                &#x2F;&#x2F;返回Json格式URL</span><br><span class="line">                let url2 &#x3D; source.getFeatureInfoUrl(</span><br><span class="line">                    evt.coordinate,</span><br><span class="line">                    this.map.getView().getResolution(),&#x2F;&#x2F;分辨率</span><br><span class="line">                    &#39;EPSG:4326&#39;,</span><br><span class="line">                    &#123;&#39;INFO_FORMAT&#39;: &#39;application&#x2F;json&#39;, &quot;QUERY_LAYERS&quot;: &#39;railway:LuoYangRailway&#39;&#125;);</span><br><span class="line">                if (url2) &#123;</span><br><span class="line">                    &#x2F;&#x2F;防止跨域去掉URL头部</span><br><span class="line">                    this.axios.post(url2.replace(&quot;http:&#x2F;&#x2F;127.0.0.1:8090&quot;, &quot;&quot;)).then((response) &#x3D;&gt; &#123;</span><br><span class="line">                        if (response.data.features &amp;&amp; response.data.features.length &gt; 0) &#123;</span><br><span class="line">                            &#x2F;&#x2F;获取第一个要素的name属性</span><br><span class="line">                            let name &#x3D; response.data.features[0].properties.name;</span><br><span class="line">                            &#x2F;&#x2F;查询WFS，name相同的要素（选中整条铁路线）</span><br><span class="line">                            this.queryWFS(equalToFilter(&#39;name&#39;, name))</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        queryWFS(filter) &#123;</span><br><span class="line">            let featureRequest &#x3D; new WFS().writeGetFeature(&#123;</span><br><span class="line">                srsName: &#39;EPSG:4326&#39;, &#x2F;&#x2F; 空间参考系统(坐标系)</span><br><span class="line">                featureNS: &quot;http:&#x2F;&#x2F;localhost:8090&#x2F;geoserver&#x2F;railway&quot;, &#x2F;&#x2F; 工作区命名空间 URI</span><br><span class="line">                featurePrefix: &#39;railway&#39;, &#x2F;&#x2F;要素的命名空间前缀</span><br><span class="line">                featureTypes: [&#39;LuoYangRailway&#39;],&#x2F;&#x2F;所要访问的图层</span><br><span class="line">                outputFormat: &#39;application&#x2F;json&#39;,</span><br><span class="line">                filter: filter &#x2F;&#x2F;查询条件</span><br><span class="line">            &#125;);</span><br><span class="line">            this.axios.post(&quot;&#x2F;geoserver&#x2F;railway&#x2F;wfs&quot;,</span><br><span class="line">                new XMLSerializer().serializeToString(featureRequest), &#x2F;&#x2F;参数转换成xml</span><br><span class="line">                &#123;headers: &#123;&#39;Content-Type&#39;: &#39;text&#x2F;xml&#39;&#125;&#125; &#x2F;&#x2F;请求头</span><br><span class="line">            ).then((response) &#x3D;&gt; &#123;</span><br><span class="line">                if (!response.data.features) &#123;</span><br><span class="line">                    return;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                if (this.queryLayerId) &#123;</span><br><span class="line">                    &#x2F;&#x2F;删除之前的查询图层</span><br><span class="line">                    let layerArr &#x3D; this.map.getLayers().getArray();</span><br><span class="line">                    layerArr.forEach((layer) &#x3D;&gt; &#123;</span><br><span class="line">                        if (layer.ol_uid &#x3D;&#x3D;&#x3D; this.queryLayerId) &#123;</span><br><span class="line">                            this.map.removeLayer(layer);</span><br><span class="line">                            this.queryLayerId &#x3D; null;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;)</span><br><span class="line">                &#125;</span><br><span class="line">                &#x2F;&#x2F;创建查询图层</span><br><span class="line">                let queryLayer &#x3D; createQueryLayer();</span><br><span class="line">                this.queryLayerId &#x3D; queryLayer.ol_uid; &#x2F;&#x2F;保存图层UID</span><br><span class="line">                for (const item of response.data.features) &#123;</span><br><span class="line">                    let geometry &#x3D; new MultiLineString(item.geometry.coordinates)</span><br><span class="line">                    let feature &#x3D; new Feature(&#123;</span><br><span class="line">                        geometry: geometry,</span><br><span class="line">                    &#125;);</span><br><span class="line">                    feature.setStyle([</span><br><span class="line">                        new Style(&#123;</span><br><span class="line">                            stroke: new Stroke(&#123;color: &#39;blue&#39;, width: 6&#125;)</span><br><span class="line">                        &#125;)</span><br><span class="line">                    ]);</span><br><span class="line">                    queryLayer.getSource().addFeature(feature);</span><br><span class="line">                &#125;</span><br><span class="line">                this.map.addLayer(queryLayer)</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p>效果图如下：</p>
+<img src="/2021/05/27/openlayer+geoserver%E5%8F%91%E5%B8%83%E5%9C%B0%E5%9B%BE%E6%9C%8D%E5%8A%A1/16.png" class="">
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/GIS/" rel="tag"># GIS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/05/26/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8B%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F/" rel="next" title="设计模式之模板方法模式">
+                <i class="fa fa-chevron-left"></i> 设计模式之模板方法模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/cat.png"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#openlayer-geoserver-%E5%8F%91%E5%B8%83WMS-WFS"><span class="nav-number">1.</span> <span class="nav-text">openlayer + geoserver 发布WMS&#x2F;WFS</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E8%BD%AF%E4%BB%B6%E7%8E%AF%E5%A2%83"><span class="nav-number">2.</span> <span class="nav-text">一、软件环境</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">二、环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">4.</span> <span class="nav-text">三、创建项目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%90%AF%E5%8A%A8webstorm%EF%BC%8C%E5%88%9B%E5%BB%BAvue%E9%A1%B9%E7%9B%AE%E3%80%82"><span class="nav-number">4.1.</span> <span class="nav-text">1、启动webstorm，创建vue项目。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%88%9B%E5%BB%BA%E5%AE%8C%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%B8%8B%E5%9B%BE%E6%89%80%E7%A4%BA"><span class="nav-number">4.2.</span> <span class="nav-text">2、创建完项目如下图所示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E5%AE%89%E8%A3%85%E5%89%8D%E7%AB%AF%E4%BE%9D%E8%B5%96"><span class="nav-number">4.3.</span> <span class="nav-text">3、安装前端依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E9%85%8D%E7%BD%AE%E5%89%8D%E7%AB%AF%E4%BE%9D%E8%B5%96"><span class="nav-number">4.4.</span> <span class="nav-text">4、配置前端依赖</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E9%85%8D%E7%BD%AEaxios"><span class="nav-number">4.4.1.</span> <span class="nav-text">1、配置axios</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE"><span class="nav-number">4.4.2.</span> <span class="nav-text">2、跨域配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E9%85%8D%E7%BD%AE-ESLint-rules"><span class="nav-number">4.4.3.</span> <span class="nav-text">3、配置 ESLint rules</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%88%9D%E5%A7%8B%E5%8C%96%E5%9C%B0%E5%9B%BE"><span class="nav-number">5.</span> <span class="nav-text">三、初始化地图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%8A%A0%E8%BD%BDOpenStreetMap%E5%BA%95%E5%9B%BE"><span class="nav-number">5.1.</span> <span class="nav-text">1、加载OpenStreetMap底图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%8A%A0%E8%BD%BDWMS"><span class="nav-number">5.2.</span> <span class="nav-text">2、加载WMS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%BD%BF%E7%94%A8geoserver%E5%8F%91%E5%B8%83WMS"><span class="nav-number">5.2.1.</span> <span class="nav-text">1、使用geoserver发布WMS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81openlayer-%E5%8A%A0%E8%BD%BDWMS%E3%80%81WFS%E5%AE%9E%E7%8E%B0%E7%82%B9%E5%87%BB%E8%A6%81%E7%B4%A0%E6%9F%A5%E8%AF%A2"><span class="nav-number">5.2.2.</span> <span class="nav-text">2、openlayer 加载WMS、WFS实现点击要素查询</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-[object Object]"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zr</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'dDC4953ywNLcy9Q9HA242KPD-gzGzoHsz',
+        appKey: 'f9zkiG10CXaV7OMhRy6mTWg3',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+</html>
